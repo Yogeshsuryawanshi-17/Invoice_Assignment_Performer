@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>731.333333333333,522.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>954,522.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Copy_Template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -83,7 +83,7 @@
         <InArgument x:TypeArguments="x:String">[datetime.Now.ToString("ddMMyyyy")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;ReportPath&quot;).ToString+str_FileName+&quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_Config(&quot;TemplatePath&quot;).tostring]" />
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;ReportPath&quot;).ToString+str_FileName+&quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_Config(&quot;TemplatePath&quot;).Tostring]" />
     <Assign sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_ReportPath]</OutArgument>
