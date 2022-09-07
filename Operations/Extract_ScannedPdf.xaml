@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>660,6083.33333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>919.333333333333,9180.66666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_ExtractScannedPdf_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="29">
@@ -70,9 +70,10 @@
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.Data.Entity</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Extracting All contents from scanned PDF's and Validating those contents with the help Regular Expressions and Building an DataTable to Store all Extracted contents and also enclosed with the Exception Handling." DisplayName="Sequence_ExtractScannedPdf" sap:VirtualizedContainerService.HintSize="480.666666666667,6018.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Extracting All contents from scanned PDF's and Validating those contents with the help Regular Expressions and Building an DataTable to Store all Extracted contents and also enclosed with the Exception Handling." DisplayName="Sequence_ExtractScannedPdf" sap:VirtualizedContainerService.HintSize="480.666666666667,9116" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="match_strCompanyName" />
       <Variable x:TypeArguments="x:String" Name="str_CompanyAddress" />
@@ -103,7 +104,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Extract Scanned Pdf Start&quot;]" />
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -111,13 +112,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Company Name Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="^(.*)" DisplayName="Matches Company Name" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;^(.*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^(.*)" RegexOption="IgnoreCase, Compiled" Result="[match_strCompanyName]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -134,6 +136,7 @@
               <InArgument x:TypeArguments="x:String">[match_strCompanyName(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;Company Name Extracted Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -160,7 +163,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,12 +171,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Company Address Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="(.*\s+.*)\s+(?=Phone No:)" DisplayName="Matches Company Address" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(.*\\s+.*)\\s+(?=Phone No:)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(.*\s+.*)\s+(?=Phone No:)" RegexOption="IgnoreCase, Compiled" Result="[match_strCompanyAddress]" />
           <Assign DisplayName="Assign Company Address" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
@@ -183,6 +187,7 @@
               <InArgument x:TypeArguments="x:String">[match_strCompanyAddress(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[&quot;Company Address Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -209,7 +214,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_3">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,12 +222,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Invoice Number Extraction Starts&quot;]" />
           <ui:Matches DisplayName="Matches  Invoice Number" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[in_PdfData]" IsBuilderTabModified="False" Pattern="(?&lt;=Invoice #:\s*)(.*)" RegexOption="IgnoreCase, Compiled" Result="[match_strInvoiceNumber]" />
           <Assign DisplayName="Assign Invoice Number" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
@@ -232,6 +238,7 @@
               <InArgument x:TypeArguments="x:String">[match_strInvoiceNumber(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;Invoice Number Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -258,7 +265,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -266,13 +273,14 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Matches DisplayName="Matches Department" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[in_PdfData]" IsBuilderTabModified="False" Pattern="(?&lt;=Fax No:[\d(\)\-\s]+)\n(.*)" RegexOption="IgnoreCase, Compiled" Result="[match_strDepartment]" />
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_9" Level="Info" Message="[&quot;Department Name Extraction Starts&quot;]" />
+          <ui:Matches BuilderPattern="(?&lt;=Fax No:[\d(\)\-\s]+)\n(.*)" DisplayName="Matches Department" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Fax No:[\\d(\\)\\-\\s]+)\\n(.*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Fax No:[\d(\)\-\s]+)\n(.*)" RegexOption="IgnoreCase, Compiled" Result="[match_strDepartment]" />
           <Assign DisplayName="Assign Department" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[str_Department]</OutArgument>
@@ -281,6 +289,7 @@
               <InArgument x:TypeArguments="x:String">[match_strDepartment(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[&quot;Department Name Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -307,7 +316,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_5">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_5">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -315,12 +324,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_6">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;Loan# Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="(?&lt;=Loan #:?)(.*)(\s+(?=Payee Code:)|(?=Vendor Code:))" DisplayName="Matches LOAN #" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Loan #:?)(.*)(\\s+(?=Payee Code:)|(?=Vendor Code:))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Loan #:?)(.*)(\s+(?=Payee Code:)|(?=Vendor Code:))" RegexOption="IgnoreCase, Compiled" Result="[match_strLoan]" />
           <Assign DisplayName="Assign LOAN #" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_5">
             <Assign.To>
@@ -330,6 +340,7 @@
               <InArgument x:TypeArguments="x:String">[match_strLoan(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;Loan# Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -356,7 +367,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_6">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -364,12 +375,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_7">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_7">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_13" Level="Info" Message="[&quot;Type Judicial Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="(?&lt;=Type:\s+)(.*)\s+(?=Cost Center:|Referral Date)" DisplayName="Matches TypeOfJudicial" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Type:\\s+)(.*)\\s+(?=Cost Center:|Referral Date)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Type:\s+)(.*)\s+(?=Cost Center:|Referral Date)" RegexOption="IgnoreCase, Compiled" Result="[match_TypeOfJudicial]" />
           <Assign DisplayName="Assign TypeOfJudicial" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
@@ -379,6 +391,7 @@
               <InArgument x:TypeArguments="x:String">[match_TypeOfJudicial(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_14" Level="Info" Message="[&quot;Type Judicial Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -405,7 +418,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_7">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_7">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -413,12 +426,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_15" Level="Info" Message="[&quot;Total Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="[\$\d\,\.]+\s+(?=Invoice Level)" DisplayName="Matches Total" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;[\\$\\d\\,\\.]+\\s+(?=Invoice Level)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="[\$\d\,\.]+\s+(?=Invoice Level)" RegexOption="IgnoreCase, Compiled" Result="[match_strTotal]" />
           <Assign DisplayName="Assign Total" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
@@ -428,6 +442,7 @@
               <InArgument x:TypeArguments="x:String">[match_strTotal(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_16" Level="Info" Message="[&quot;Total Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -454,7 +469,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_8">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_8">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -462,12 +477,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_9">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_9">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_17" Level="Info" Message="[&quot;Vendor Code Extraction Starts&quot;]" />
           <ui:Matches BuilderPattern="(?&lt;=Vendor Code:\s+)(.*)" DisplayName="Matches Vendor Code" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[in_PdfData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Vendor Code:\\s+)(.*)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Vendor Code:\s+)(.*)" RegexOption="IgnoreCase, Compiled" Result="[match_strVendorCode]" />
           <Assign DisplayName="Assign Vendor Code" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
@@ -477,6 +493,7 @@
               <InArgument x:TypeArguments="x:String">[match_strVendorCode(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_18" Level="Info" Message="[&quot;Vendor Code Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -503,7 +520,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_9">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_9">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -511,12 +528,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_10">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_10">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="Info" Message="[&quot;Start Date Extraction Starts&quot;]" />
           <ui:Matches DisplayName="Matches StartDate" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[in_PdfData]" IsBuilderTabModified="False" Pattern="\n(\d{1,2}/\d{1,2}/\d{4})" RegexOption="IgnoreCase, Compiled" Result="[match_strStartDate]" />
           <Assign DisplayName="Assign StartDate" sap:VirtualizedContainerService.HintSize="334,62" sap2010:WorkflowViewState.IdRef="Assign_9">
             <Assign.To>
@@ -526,6 +544,7 @@
               <InArgument x:TypeArguments="x:String">[match_strStartDate(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="Info" Message="[&quot;Start Date Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -552,7 +571,7 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,490.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_10">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,760" sap2010:WorkflowViewState.IdRef="TryCatch_10">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -560,12 +579,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,252.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_11">
+        <Sequence sap:VirtualizedContainerService.HintSize="376,522" sap2010:WorkflowViewState.IdRef="Sequence_11">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="Info" Message="[&quot;End Date Extraction Starts&quot;]" />
           <ui:Matches DisplayName="Matches End Date" sap:VirtualizedContainerService.HintSize="334,58.6666666666667" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[in_PdfData]" IsBuilderTabModified="False" Pattern="[\d\/]+\s+((?=Cost Description)|(?=Fee Description))" RegexOption="IgnoreCase, Compiled" Result="[match_strEndDate]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -582,6 +602,7 @@
               <InArgument x:TypeArguments="x:String">[match_strEndDate(0).tostring.trim]</InArgument>
             </Assign.Value>
           </Assign>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="Info" Message="[&quot;EndDate Extraction Successful&quot;]" />
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
@@ -608,8 +629,11 @@
         </Catch>
       </TryCatch.Catches>
     </TryCatch>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="Info" Message="[&quot;Starting With DataTable Building&quot;]" />
     <ui:BuildDataTable DataTable="[out_strDataTable]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="438.666666666667,58.6666666666667" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Company_x0020_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Company_x0020_Address&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Invoice_x0020_Number&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;LOAN_x0020__x0023_&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Judicial_x002F_Non_x0020_Judicial&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Total&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Vendor_x0020_Code&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Start_x0020_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;End_x0020_Date&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_24" Level="Info" Message="[&quot;Adding Data rows in Data Table&quot;]" />
     <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{str_CompanyName,str_CompanyAddress,strInvoiceNumber,str_Department,strLoan,strTypeOfJudicial,strTotal,strVendorCode,strStartDate,strEndDate}]" DataTable="[out_strDataTable]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="438.666666666667,190" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Extract Scanned Pdf End&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_25" Level="Info" Message="[&quot;Adding DataTable &amp; DataRow Successful&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="438.666666666667,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Extract Scanned Pdf End With Successful&quot;]" />
   </Sequence>
 </Activity>

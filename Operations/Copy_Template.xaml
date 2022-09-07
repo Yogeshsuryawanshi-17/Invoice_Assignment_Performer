@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>660,584.666666666667</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>919.333333333333,988.666666666667</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Copy_Template_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
@@ -64,9 +64,11 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="After Writing all data  we need copy given contents to the Template  Items_Claim_Template.Xlsx with and save and  renamed again with &quot;DDMMYY&quot; formatting " DisplayName="Copy_Template" sap:VirtualizedContainerService.HintSize="476,520" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="After Writing all data  we need copy given contents to the Template  Items_Claim_Template.Xlsx with and save and  renamed again with &quot;DDMMYY&quot; formatting " DisplayName="Copy_Template" sap:VirtualizedContainerService.HintSize="476,924" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_FileName" />
     </Sequence.Variables>
@@ -76,6 +78,7 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Starting With Template Copy Opration&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[str_FileName]</OutArgument>
@@ -84,14 +87,16 @@
         <InArgument x:TypeArguments="x:String">[datetime.Now.ToString("ddMMyyyy")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;ReportPath&quot;).ToString+str_FileName+&quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_Config(&quot;TemplatePath&quot;).Tostring]" />
+    <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;ReportPath&quot;).ToString+&quot;ItemsToClaim_&quot;+ str_FileName+&quot;.xlsx&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,162" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[in_Config(&quot;TemplatePath&quot;).Tostring]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Copy File From Source to Destination Successful&quot;]" />
     <Assign sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_ReportPath]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[in_Config("ReportPath").ToString+str_FileName+".xlsx"]</InArgument>
+        <InArgument x:TypeArguments="x:String">[in_Config("ReportPath").ToString+"ItemsToClaim_"+ str_FileName+".xlsx"]</InArgument>
       </Assign.Value>
     </Assign>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Copy Template End Successful&quot;]" />
   </Sequence>
 </Activity>
